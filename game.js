@@ -1,11 +1,7 @@
 var buttonColors = ["red", "blue", "green", "yellow"];
-
 var gamePattern = [];
-
 var userClickedPattern = []
-
 var started = false;
-
 var level = 0;
 
 $(document).on("keydown", function(){
@@ -16,14 +12,11 @@ $(document).on("keydown", function(){
   }
 });
 
-
-
 $(".btn").click(function() {
   var userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
   playSound(userChosenColor);
   animatePress(userChosenColor);
-  // console.log(userChosenColor);
   checkAnswer(userClickedPattern.length-1);
 });
 
@@ -39,11 +32,9 @@ function checkAnswer(currentLevel) {
     console.log("wrong");
     playSound("wrong");
     $("body").addClass("game-over");
-
     setTimeout(function() {
       $("body").removeClass("game-over");
     }, 200);
-
     $("h1").text("Game Over, Press Any Key to Restart");
     startOver();
   }
